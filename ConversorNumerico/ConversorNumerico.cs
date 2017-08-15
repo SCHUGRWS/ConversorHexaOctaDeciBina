@@ -49,10 +49,23 @@ namespace ConversorNumerico
 
         private void btConverter_Click(object sender, EventArgs e)
         {
-            lbBinario.Text = ""+Convert.ToInt64(calculo.ConverterParaBinario(tbValorDigitado.Text));
-            lbDecimal.Text = calculo.ConverterParaDecimal(tbValorDigitado.Text);
-            lbHexadecimal.Text = calculo.ConverterParaHexadecimal(tbValorDigitado.Text);
-            lbOctal.Text = calculo.ConverterParaOctal(tbValorDigitado.Text);
+
+            string valor = tbValorDigitado.Text;
+            valor = valor.ToUpper();
+
+            if (valor != "")
+            {
+
+                lbBinario.Text = calculo.ConverterParaBinario(valor);
+                lbDecimal.Text = calculo.ConverterParaDecimal(valor);
+                lbHexadecimal.Text = calculo.ConverterParaHexadecimal(valor);
+                lbOctal.Text = calculo.ConverterParaOctal(valor);
+
+            }
+            else
+            {
+                MessageBox.Show("Valor: Campo Obrigatório!");
+            }
         }
     }
 }

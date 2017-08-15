@@ -24,7 +24,7 @@ namespace ConversorNumerico.Classes
                 }
                 int numero = Convert.ToInt32(valor);
                 int ultimoValor = numero;
-                String binario = "";
+                string binario = "";
                 for (int i = 0; ultimoValor >= 1; i++)
                 {
                     if (ultimoValor % 2 == 0)

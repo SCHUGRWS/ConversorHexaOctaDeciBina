@@ -57,7 +57,18 @@ namespace ConversorNumerico.Classes
         {
             try
             {
-                return "";
+                if (!System.Text.RegularExpressions.Regex.IsMatch(valor, "^[0-7]+$"))
+                {
+                    throw new FormatException();
+                }
+
+                string binario = ConverterParaBinario(valor);
+
+                CalculosBinario bin = new CalculosBinario();
+
+                string nrDecimal = bin.ConverterParaDecimal(binario);
+
+                return ""+ nrDecimal;
             }
             catch (FormatException e)
             {
@@ -69,7 +80,17 @@ namespace ConversorNumerico.Classes
         {
             try
             {
-                return "";
+                if (!System.Text.RegularExpressions.Regex.IsMatch(valor, "^[0-7]+$"))
+                {
+                    throw new FormatException();
+                }
+                
+                CalculosDecimal calcDecimal = new CalculosDecimal();
+
+                string valorDecimal = ConverterParaDecimal(valor);
+                string valorHexadecimal = calcDecimal.ConverterParaHexadecimal(valorDecimal);
+
+                return ""+ valorHexadecimal;
             }
             catch (FormatException e)
             {
@@ -81,7 +102,12 @@ namespace ConversorNumerico.Classes
         {
             try
             {
-                return "";
+                if (!System.Text.RegularExpressions.Regex.IsMatch(valor, "^[0-7]+$"))
+                {
+                    throw new FormatException();
+                }
+
+                return "OCTAL";
             }
             catch (FormatException e)
             {
