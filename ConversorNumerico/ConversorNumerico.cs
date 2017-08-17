@@ -55,6 +55,7 @@ namespace ConversorNumerico
 
             if (valor != "")
             {
+                valor = valor.Trim();
 
                 lbBinario.Text = calculo.ConverterParaBinario(valor);
                 lbDecimal.Text = calculo.ConverterParaDecimal(valor);
